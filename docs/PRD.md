@@ -50,6 +50,8 @@ keeps it.
 - FR-M5. Front door: the family map (the flight-test program), the naming
   law, links to each methodology (windtunnel's, minder's security posture as
   it lands), the glossary. This is the open-moat surface for the program.
+  The work console's design authority lives in minder at
+  docs/design/PRD-work-console.md (minder-owner-local; xyzzing/minder#76).
 - FR-M6. Failure provenance: every red tripwire names the producing commit
   and consuming validator version, so the fix lands in the right bird.
 
