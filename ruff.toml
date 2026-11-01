@@ -1,0 +1,5 @@
+# `.agentic/` is pinned harness tooling (hashes pinned in
+# .agentic/install-state.json), not project code, and its bundled verify.py
+# does not meet the project lint. Exclude it so `ruff check .` measures the
+# project itself. See xyzzing/minder#76 for the change that surfaced this.
+extend-exclude = [".agentic"]

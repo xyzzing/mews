@@ -1,0 +1,10 @@
+{
+  "checks": [
+    {
+      "name": "ruff",
+      "cwd": ".",
+      "argv": ["ruff", "check", "."],
+      "timeout": 60
+    }
+  ]
+}
