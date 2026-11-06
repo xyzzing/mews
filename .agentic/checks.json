@@ -5,6 +5,12 @@
       "cwd": ".",
       "argv": ["ruff", "check", "."],
       "timeout": 60
+    },
+    {
+      "name": "pytest",
+      "cwd": ".",
+      "argv": ["python3", "-m", "pytest", "-q"],
+      "timeout": 300
     }
   ]
 }
