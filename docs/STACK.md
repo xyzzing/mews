@@ -342,22 +342,47 @@ specialization 0.754 selective accuracy at 33% routing.
 
 ## 14. Gap register and development plan
 
-Combined priority (PE + loop engineering): (1) minder #71 delegation
-capture; (2) the work-order contract (windtunnel FR-W1 schema + minder O1
-runtime) - the quality plan and reward definition are the same artifact;
-(3) FPY surface (minder O2, ledger-only); (4) context-rot metrics (minder
-O4); (5) #62 + #49 credit assignment and contrast-pair export - the data
-path from loop failures to valkenier's training set.
+Combined priority (PE + loop engineering): (1) minder #80 learning-loop
+delivery, the new top gap (filed 2026-11-04): the loop has never
+delivered end to end - 0 live lessons, 102/102 injection-ledger rows are
+block_duplicate misses. Measured causes: schema drift from an
+in-place edit to shipped migration 015 (f6d7413), assist mode
+decision_skill in force, a verification feed dead since 2026-10-22, 19
+unclassified frontier traces; fix in flight (minder PR #86). The former
+(1), minder #71 delegation capture, is largely resolved - see W1; (2)
+the work-order contract (windtunnel FR-W1 schema + minder O1 runtime) -
+the quality plan and reward definition are the same artifact; (3) FPY
+surface (minder O2, ledger-only); (4) context-rot metrics (minder O4);
+(5) #62 + #49 credit assignment and contrast-pair export - the data path
+from loop failures to valkenier's training set.
 
-Waves: W1 observation (#71, context-rot, FPY, objective declaration); W2
-keystone (work-order contract, Goodhart monitor, E-stop, approval inbox);
-W3 learning path (#62, #49, valkenier #74 -> P2 -> M9-M11 -> R5 -> R6);
-W4 plant (cupola WIP/backpressure FR-C2, incoming inspection FR-C1, #59
-cadence); W5 the mews built out (M0 tripwires first, then M1 shakedown).
+Waves: W1 observation, capture plane largely landed - headless capture
+works on dsh 0.2.x once the bridge pin is fixed (the pinned 0.1.5 bridge
+failed to import, which is why capture read as dark); the remainder
+moved to #72 (per-child tool-phase capture plugin) and #73 (capture
+canary, since 2026-10-31 on systemd user timers, commit 08d2e57).
+Context-rot, FPY and the objective declaration are still open. W2
+keystone in flight: windtunnel #14/PR #15 own the work-order shape,
+minder #84/PR #85 the runtime; Goodhart monitor, E-stop and the approval
+inbox are unmoved. W3 learning path (#62, #49, valkenier #74 -> P2 ->
+M9-M11 -> R5 -> R6) sits behind #80 - there is no delivery to measure
+until its fix lands. W4 plant (cupola WIP/backpressure FR-C2, incoming
+inspection FR-C1, #59 cadence). W5 the mews built out: the M0 tripwires
+are written and already paying - the founding pair's first honest run
+was red on real drift (windroos evidence export missing three
+sweep-run/v1 required keys, finish_reason/t_start/t_end; windroos-internal
+#36, fix in PR #37); M1 shakedown is next.
 
 Open owner actions: land cupola's Sentinel WIP (stash/rebase/pop recipe in
-repo); windtunnel visibility flip; windroos v0.4 execution after RA-022/023
-pilots; closing keywords on tracking issues (#74, #6, #11, #30, #78 in
+repo); windtunnel visibility flip; windroos G5 - the v0.4.0 rename is
+executed (remotes are now windroos-internal and windroos) but the release
+is labelled partial, G5 gap stands (commit 24d607d), and the RA-022/023
+transfer pilots stay blocked on a second live serving profile
+(docs/RUN-NOTES.md addendum); FR-R1 provenance tiers are mid-flight on
+#30, branch ra-r1-provenance. On the minder side, once #86 merges: run
+minder-op migrate and redeploy the worker share, and decide the assist
+mode switch (decision_skill in force means the retrieve branch never
+runs). Closing keywords on tracking issues (#74, #6, #11, #30, #78 in
 their repos; minder #13/#61/#71); PEP 541 filings; valkenier #74 SS19
 approval.
 
