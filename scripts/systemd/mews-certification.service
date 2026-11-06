@@ -1,0 +1,6 @@
+[Unit]
+Description=mews nightly certification - tripwires + shakedown, report page (FR-M4)
+
+[Service]
+Type=oneshot
+ExecStart=%h/projects/mews/scripts/mews-certification.sh

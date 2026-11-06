@@ -61,3 +61,5 @@ def _sibling_fixture(name: str):
 
 landed_windtunnel = _sibling_fixture("windtunnel")
 landed_windroos = _sibling_fixture("windroos")
+landed_minder = _sibling_fixture("minder")
+landed_cupola = _sibling_fixture("cupola")
