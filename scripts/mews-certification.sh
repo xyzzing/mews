@@ -55,6 +55,17 @@ fi
   echo "later, the file is the authority."
 } > "$REPORT"
 
+# Model-drift probe (mews#8): the live engine's quality against the
+# pinned baseline. Skips honestly when the engine is down (the night
+# window owns it). A drift red turns the certification red.
+DRIFT_LINE="$(python3 scripts/model_drift.py --report "$REPORT" --quiet 2>/dev/null)" \
+  && DRIFT_RED=0 || DRIFT_RED=1
+echo "$DRIFT_LINE"
+
+if [ "$VERDICT" = "green" ] && [ "$DRIFT_RED" = "1" ]; then
+  VERDICT="red"
+fi
+
 if [ "$VERDICT" = "red" ]; then
   notify-send -u critical "mews certification RED" \
     "report: $REPORT" 2>/dev/null || true

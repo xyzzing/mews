@@ -1,0 +1,44 @@
+{
+ "pinned_at": "2026-11-08T13:26:01.497515+00:00",
+ "provenance": {
+  "model": "qwen3.8-flash-next",
+  "service": "strata",
+  "max_context": 131072,
+  "unit_description": "Strata production server (loopback :8081, refresh-0148 / engine 0.1.48.1 + the 0.2.3.1 serve layer, hipBLASLt 100500)"
+ },
+ "rate": 1.0,
+ "probes": {
+  "p-arithmetic-1": {
+   "passed": true,
+   "answer": "42"
+  },
+  "p-arithmetic-2": {
+   "passed": true,
+   "answer": "42"
+  },
+  "p-arithmetic-3": {
+   "passed": true,
+   "answer": "12"
+  },
+  "p-echo-exact": {
+   "passed": true,
+   "answer": "MIEWS-DRIFT-PROBE-7391"
+  },
+  "p-json-shape": {
+   "passed": true,
+   "answer": "{\"status\": \"ok\", \"n\": 2}"
+  },
+  "p-code-fix": {
+   "passed": true,
+   "answer": "def get(d, k): return d.get(k, default)"
+  },
+  "p-negation": {
+   "passed": true,
+   "answer": "YES"
+  },
+  "p-sequence": {
+   "passed": true,
+   "answer": "alpha beta gamma"
+  }
+ }
+}
