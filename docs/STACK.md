@@ -1,8 +1,10 @@
 # The flight-test program: complete stack overview
 
-Version: 2026-10-31, post-landing. Audience: a researcher or agent with no
-prior session context. Everything here is verifiable in the six repositories;
-internal facts cite repo paths, external claims cite sources in SS13.
+Version: 2026-11-09. The 2026-10-31 post-landing map, plus the RSI loop
+(docs/RSI.md, PRD amendment 2026-11-09). Audience: a researcher or agent
+with no prior session context. Everything here is verifiable in the six
+repositories; internal facts cite repo paths, external claims cite sources
+in SS13.
 
 ## 1. The program in one page
 
@@ -33,6 +35,11 @@ work item ──▶ [agent loop: minder proxy 8390 → cupola engine] ──▶ 
 control lane:  windtunnel validates any proposed change before it touches the process
                promotion law: nothing changes live behavior without human sign-off
                the ledger records every attempt, verdict, token, and gram of CO2e
+
+learning outer loop (planned, docs/RSI.md): verified failures -> rewrites
+               (self first, frontier fallback) -> governed SFT round ->
+               candidate on a second profile -> certify -> owner pin.
+               The recursion is in the loop; the pin is human.
 ```
 
 The economic thesis: introducing an LLM into a work process moves the control
@@ -247,8 +254,12 @@ full-loop shakedown in stub mode (intake -> guard -> engine stub -> lesson
 retrieval -> guided retry -> verdict -> ledger -> evidence growth ->
 windtunnel replay - the comic story as a test); M2 front door + nightly
 certification reports (per-pair red/green with failure provenance); M3
-security event tripwires. Boundary: no runtime code, imports no bird, is
-imported by no bird, owns no shape any bird owns.
+security event tripwires; M4-M6 the RSI phases (PRD amendment
+2026-11-09: FR-M7 data-plane tripwires for the learning path's shapes,
+FR-M8 round certification with the re-pin gate, FR-M9 the loop shakedown
+extended through rewrite -> train-export -> candidate manifest). Program
+map for the learning loop: docs/RSI.md. Boundary: no runtime code,
+imports no bird, is imported by no bird, owns no shape any bird owns.
 
 ## 9. Architecture view 1 - loop engineering
 
@@ -339,6 +350,15 @@ specialization 0.754 selective accuracy at 33% routing.
 - Shadow-first detector deployment; the inversion rule for fail modes.
 - Renames: valkenier and cupola executed; windroos proposed for v0.4;
   minder stays.
+- RSI posture (2026-11-09): the loop closes through verified rewrites
+  plus governed SFT rounds (docs/RSI.md); rewrite intelligence is self
+  first (local engine + retrieved lessons) with the governed frontier lane
+  as fallback; rounds are proposed-measured-pinned, never auto-promoted.
+- RL remains ruled out. Adopting an RL refinement phase (GRPO/TB-GAE
+  style, per Terminal-RSI) is an explicit future decision record with
+  preconditions: at least two certified SFT rounds with measured gains, a
+  valkenier governance amendment defining reward sources, and a serving
+  decision for gradient-bearing artifacts. Tracked in mews.
 
 ## 14. Gap register and development plan
 
@@ -362,16 +382,26 @@ failed to import, which is why capture read as dark); the remainder
 moved to #72 (per-child tool-phase capture plugin) and #73 (capture
 canary, since 2026-10-31 on systemd user timers, commit 08d2e57).
 Context-rot, FPY and the objective declaration are still open. W2
-keystone in flight: windtunnel #14/PR #15 own the work-order shape,
-minder #84/PR #85 the runtime; Goodhart monitor, E-stop and the approval
-inbox are unmoved. W3 learning path (#62, #49, valkenier #74 -> P2 ->
-M9-M11 -> R5 -> R6) sits behind #80 - there is no delivery to measure
-until its fix lands. W4 plant (cupola WIP/backpressure FR-C2, incoming
-inspection FR-C1, #59 cadence). W5 the mews built out: the M0 tripwires
-are written and already paying - the founding pair's first honest run
-was red on real drift (windroos evidence export missing three
-sweep-run/v1 required keys, finish_reason/t_start/t_end; windroos-internal
-#36, fix in PR #37); M1 shakedown is next.
+keystone landed 2026-11-08 (windtunnel PR #15 the work-order shape,
+minder PR #85 the runtime, mews PR #3 the tripwire pair, minder PR #86
+the #80 repair); Goodhart monitor, E-stop and the approval inbox are
+unmoved. W3 learning path, expanded 2026-11-09 into the RSI roadmap
+(docs/RSI.md, mews#11): R0 the data plane - windroos-internal#38
+(trajectory unification + contrast-pair export, under the #30 amendment)
+-> valkenier#78/#77 (P1.5 training units) -> mews M4 tripwires; R1 field
+readiness - the #80 fix deployed plus minder#88 eval-pair; R2 the first
+wave - windroos-internal#39 (verified rewrites, self first with governed
+frontier fallback), minder#92 (candidate alias), cupola#10 (candidate
+profile, also unblocking G5/RA-022); R3 the first SFT round -
+valkenier#80/#81/#82 under SS19 approvals; R4 certification -
+windtunnel#17 (round report, R5/R6) + mews M5/M6, owner pin between
+rounds. W4 plant (cupola WIP/backpressure FR-C2, incoming inspection
+FR-C1 now consumed by cupola#10, #59 cadence). W5 the mews built out:
+M0 tripwires paid immediately - the founding pair's first honest run was
+red on real drift (windroos evidence export missing three sweep-run/v1
+required keys, finish_reason/t_start/t_end; windroos-internal #36, fix
+in PR #37); M1 shakedown and M2 nightly certification landed (mews#4,
+with the model-drift probe from mews#8); M3 security tripwires next.
 
 Open owner actions: land cupola's Sentinel WIP (stash/rebase/pop recipe in
 repo); windtunnel visibility flip; windroos G5 - the v0.4.0 rename is
@@ -408,7 +438,7 @@ docs/methodology.md + docs/SCHEMAS-room.md + docs/PRD-amendment-2026-10-31.md;
 windroos docs/prd-v1.3.md + docs/prd-v1.4-amendment.md +
 docs/naming-assessment.md + docs/position-assessment.md; valkenier
 docs/PRD.md (SS14, SS19) + docs/PRD-amendment-2026-10-31.md; the mews
-docs/PRD.md.
+docs/PRD.md + docs/PRD-amendment-2026-11-09.md + docs/RSI.md.
 
 External: OWASP GenAI Security Project (genai.owasp.org) - LLM Top 10 and
 agentic ASI01-10; "When Benchmarks Lie: Evaluating Malicious Prompt
@@ -419,4 +449,5 @@ mcp-scan, modelscan, guarddog, presidio, gitleaks (integration candidates,
 verified licenses); LangGraph 1.0 durable-execution direction and A2A/AAIF
 protocol landscape (context for the loops-vs-graphs verdict: the loop is the
 runtime unit; graphs moved to compile target, durable substrate, and
-network topology).
+network topology); Terminal-RSI (arXiv 2610.22192) - the recursive
+self-improvement method the learning outer loop maps onto (docs/RSI.md).
