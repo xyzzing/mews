@@ -16,9 +16,9 @@ and the whole program is validated as a system, not just per-repo.
 |---|---|---|
 | [minder](https://github.com/xyzzing/minder) | the keeper / the tower | Supervises agents at one trust boundary: proxy, hooks, authority gates, memory governance, evals, ledger. |
 | [cupola](https://github.com/xyzzing/cupola) | the furnace + watch-dome | Serves local inference: lifecycle FSM, conservative VRAM admission, model-file integrity, carbon accounting. |
-| [windtunnel](https://github.com/xyzzing/windtunnel) | the tunnel | Measures agent behavior against deterministic rooms: paired counterfactuals, pinned fingerprints, published methodology. |
-| windroos (rename pending) | the rose | Remembers: evidence-bound lessons, governed retrieval, digest-bound evidence telemetry. |
-| [valkenier](https://github.com/xyzzing/valkenier) | the falconer | Prepares data and trains specialists under recorded decisions; a candidate ships only if it beats the best fixed setting. |
+| windtunnel (private) | the tunnel | Measures agent behavior against deterministic rooms: paired counterfactuals, pinned fingerprints, published methodology. |
+| [windroos](https://github.com/xyzzing/windroos) | the rose | Remembers: evidence-bound lessons, governed retrieval, digest-bound evidence telemetry. |
+| valkenier (private) | the falconer | Prepares data and trains specialists under recorded decisions; a candidate ships only if it beats the best fixed setting. |
 | [the mews](https://github.com/xyzzing/mews) | the house | Systems-integration rig and front door: contract-drift tripwires, full-loop shakedown, program map. |
 
 The loop they implement:
