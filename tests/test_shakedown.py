@@ -22,7 +22,6 @@ landed-state rule as the tripwires).
 import json
 import os
 import subprocess
-from pathlib import Path
 
 import pytest
 
@@ -227,7 +226,7 @@ def run_py(tmp_path):
             env.update(env_extra)
         result = subprocess.run(
             ("python3", "-I", str(script)), cwd=tmp_path,
-            capture_output=True, text=True, env=env)
+            capture_output=True, text=True, env=env, check=False)
         if result.returncode != 0:
             raise AssertionError(
                 f"hop script failed ({script.name}):\n"
