@@ -1,5 +1,7 @@
 # The mews
 
+[![CI](https://github.com/xyzzing/mews/actions/workflows/ci.yml/badge.svg)](https://github.com/xyzzing/mews/actions/workflows/ci.yml)
+
 The falconry house where the birds live: the systems-integration rig and
 front door of the flight-test program.
 

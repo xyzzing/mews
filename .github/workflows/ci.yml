@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install ruff
+        run: pip install "ruff==0.16.5"  # pinned: rule sets change between minors
+      - name: Lint (ruff, config in ruff.toml)
+        run: ruff check .
+
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+      - name: Run tests (sibling tripwires skip without sibling repos)
+        run: |
+          python3 -m pytest -q | tee pytest.out
+          # M2: a gate's input needs checking, not just its exit code - a
+          # sibling-free runner must still run something AND still discover
+          # the sibling-dependent tripwires it skips.
+          grep -qE '[1-9][0-9]* passed' pytest.out \
+            || { echo '::error::no tests ran - the gate measured nothing'; exit 1; }
+          grep -qE '[1-9][0-9]* skipped' pytest.out \
+            || { echo '::error::tripwires not collected - the skip half of the gate vanished'; exit 1; }
